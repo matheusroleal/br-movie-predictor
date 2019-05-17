@@ -19,5 +19,5 @@ model1 <- randomForest(V4 ~ ., data = csv_train, importance = TRUE)
 # Predicting on train set
 predTrain <- predict(model1, csv_train, type = "class")
 # Checking classification accuracy
-mean(predTrain == csv_train$Condition)
-table(predTrain, csv_train$Condition)
+mean(predTrain == csv_train$V4)
+table(predTrain, csv_train$V4)
