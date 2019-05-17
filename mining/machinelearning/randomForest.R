@@ -14,10 +14,11 @@ summary(dt_test)
 summary(dt_train)
 
 # Create a Random Forest model with default parameters
-model1 <- randomForest(V4 ~ ., data = csv_train, importance = TRUE)
+model1 <- randomForest(V4 ~ ., data = dt_train, importance = TRUE)
 
 # Predicting on train set
-predTrain <- predict(model1, csv_train, type = "class")
+predTrain <- predict(model1, dt_train, type = "class")
+
 # Checking classification accuracy
-mean(predTrain == csv_train$V4)
-table(predTrain, csv_train$V4)
+mean(predTrain == dt_train$V4)
+table(predTrain, dt_train$V4)
