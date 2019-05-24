@@ -2,9 +2,15 @@
 # install.packages("glmnet")
 library(glmnet)
 
-# Dataset extracted
+# load data
 csv = read.csv(file="dataset/RegressionAnalysisPreProcessing.csv", header=FALSE, sep=",")
-dt = data.frame(csv)
+
+# generate a dummy-variable
+direc = factor(csv$V1)
+d1 = model.matrix(~direc)
+ditri = factor(csv$V3)
+d2 = model.matrix(~ditri)
+dt = data.frame(d1,d2,csv$V2,csv$V4)
 
 x <- as.matrix(dt[,1:3])
 y <- as.matrix(dt[,4])
