@@ -1,21 +1,22 @@
 # install.packages("ggplot2")
 library(ggplot2)
 
-# Training dataset extracted
-csv_train = read.csv(file="dataset/trainData.csv", header=FALSE, sep=",")
-dt_train = data.frame(csv_train)
+# load data
+csv = read.csv(file="dataset/RegressionAnalysisPreProcessing.csv", header=FALSE, sep=",")
+
+ran <- sample(1:nrow(dt),0.9 * nrow(dt))
 
 # Test dataset extracted
-csv_test = read.csv(file="dataset/testData.csv", header=FALSE, sep=",")
-dt_test = data.frame(csv_test)
+dt_train <- dt[ran,]
+dt_test <- dt[-ran,]
 
 # The 2nd column of training dataset because that is what we need to predict about testing dataset
 # Also convert ordered factor to normal factor
-dt_target <- as.factor(dt_train[,4])
+dt_target <- as.factor(dt_train[ran,4])
 
 # The actual values of 2nd couln of testing dataset to compaire it with values that will be predicted
 # Also convert ordered factor to normal factor
-test_target <- as.factor(dt_test[,4])
+test_target <- as.factor(dt_test[-ran,4])
 
 # Run knn function
 library(class)
