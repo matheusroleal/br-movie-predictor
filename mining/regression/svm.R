@@ -6,6 +6,8 @@ library(kernlab)
 csv = read.csv(file="dataset/RegressionAnalysisPreProcessing.csv", header=FALSE, sep=",")
 dt = data.frame(csv)
 
+y <- as.matrix(dt[,4])
+
 # fit model
 fit <- ksvm(V4~., dt)
 
@@ -13,8 +15,12 @@ fit <- ksvm(V4~., dt)
 summary(fit)
 
 # make predictions
-predictions <- predict(fit, dt)
+y_predicted <- predict(fit, dt)
 
-# summarize accuracy
-mse <- mean((dt$V4 - predictions)^2)
-print(mse)
+# Sum of Squares Total and Error
+sst <- sum((y - mean(y))^2)
+sse <- sum((y_predicted - y)^2)
+
+# R squared
+rsq <- 1 - sse / sst
+rsq

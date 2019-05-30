@@ -3,6 +3,7 @@ library(ggplot2)
 
 # load data
 csv = read.csv(file="dataset/RegressionAnalysisPreProcessing.csv", header=FALSE, sep=",")
+dt = data.frame(csv)
 
 ran <- sample(1:nrow(dt),0.9 * nrow(dt))
 
