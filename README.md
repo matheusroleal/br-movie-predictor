@@ -8,3 +8,4 @@ This article proposes a way to predict the success of a Brazilian film before it
 A total of 3 classification models and 3 regression models were used to answer the study question. We used the input resources (Director, Gender, Distributor) to predict the destination variable (Public / Income). We used the functionalities and packages in the R language in the mining process. The techniques chosen were Neural Networks, Mixture Discriminant Analysis (MDA) and Random Forest for classification and k-Nearest Neighbor (kNN), Support Vector Machines (SVM) and Ridge Regression for regression. In all cases they address the following question: "Can we predict whether a movie will be successful before it reaches the box office?"
 
 ## Full Study
+You can read the full study at this [link](https://medium.com/@matheusroleal/predicting-the-success-of-a-brazilian-movie-using-machine-learning-techniques-dc4cf13c5a72)
